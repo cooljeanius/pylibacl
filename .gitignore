@@ -8,3 +8,9 @@
 /posix1e.txt
 /pylibacl.egg-info
 *.py[co]
+*.cache
+*.o
+config.h
+*.log
+*.status
+stamp-h*

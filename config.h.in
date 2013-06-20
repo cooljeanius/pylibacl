@@ -1,0 +1,151 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define to 1 if you have the `acl' function. */
+#undef HAVE_ACL
+
+/* Define to 1 if you have the `aclx_get' function. */
+#undef HAVE_ACLX_GET
+
+/* Define to 1 if you have the `acl_copy_ext_native' function. */
+#undef HAVE_ACL_COPY_EXT_NATIVE
+
+/* Define to 1 if you have the `acl_create_entry_np' function. */
+#undef HAVE_ACL_CREATE_ENTRY_NP
+
+/* Define to 1 if you have the `acl_delete_def_file' function. */
+#undef HAVE_ACL_DELETE_DEF_FILE
+
+/* Define to 1 if you have the `acl_delete_fd_np' function. */
+#undef HAVE_ACL_DELETE_FD_NP
+
+/* Define to 1 if you have the `acl_delete_file_np' function. */
+#undef HAVE_ACL_DELETE_FILE_NP
+
+/* Define to 1 if you have the `acl_entries' function. */
+#undef HAVE_ACL_ENTRIES
+
+/* Define to 1 if you have the `acl_extended_file' function. */
+#undef HAVE_ACL_EXTENDED_FILE
+
+/* Define to 1 if the constant ACL_FIRST_ENTRY exists. */
+#undef HAVE_ACL_FIRST_ENTRY
+
+/* Define to 1 if you have the `acl_free' function. */
+#undef HAVE_ACL_FREE
+
+/* Define to 1 if you have the `acl_free_text' function. */
+#undef HAVE_ACL_FREE_TEXT
+
+/* Define to 1 if you have the `acl_from_mode' function. */
+#undef HAVE_ACL_FROM_MODE
+
+/* Define to 1 if you have the `acl_from_text' function. */
+#undef HAVE_ACL_FROM_TEXT
+
+/* Define to 1 if you have the `acl_get_fd' function. */
+#undef HAVE_ACL_GET_FD
+
+/* Define to 1 if you have the `acl_get_file' function. */
+#undef HAVE_ACL_GET_FILE
+
+/* Define to 1 if you have the <acl/libacl.h> header file. */
+#undef HAVE_ACL_LIBACL_H
+
+/* Define to 1 if you have the `acl_set_fd' function. */
+#undef HAVE_ACL_SET_FD
+
+/* Define to 1 if you have the `acl_set_file' function. */
+#undef HAVE_ACL_SET_FILE
+
+/* Define to 1 if you have the `acl_to_short_text' function. */
+#undef HAVE_ACL_TO_SHORT_TEXT
+
+/* Define to 1 if you have the `acl_trivial' function. */
+#undef HAVE_ACL_TRIVIAL
+
+/* Define to 1 if the ACL type ACL_TYPE_EXTENDED exists. */
+#undef HAVE_ACL_TYPE_EXTENDED
+
+/* Define to 1 if you have the `getacl' function. */
+#undef HAVE_GETACL
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the `statacl' function. */
+#undef HAVE_STATACL
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/acl.h> header file. */
+#undef HAVE_SYS_ACL_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Define to nonzero if you want access control list support. */
+#undef USE_ACL
+
+/* Version number of package */
+#undef VERSION
+
+/* Define to empty if `const' does not conform to ANSI C. */
+#undef const
+
+/* Define to `int' if <sys/types.h> doesn't define. */
+#undef gid_t
+
+/* Define to `__inline__' or `__inline' if that's what the C compiler
+   calls it, or to nothing if 'inline' is not supported under any name.  */
+#ifndef __cplusplus
+#undef inline
+#endif
+
+/* Define to `int' if <sys/types.h> does not define. */
+#undef mode_t
+
+/* Define to `int' if <sys/types.h> does not define. */
+#undef ssize_t
+
+/* Define to `int' if <sys/types.h> doesn't define. */
+#undef uid_t
