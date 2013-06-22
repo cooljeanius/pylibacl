@@ -1,12 +1,12 @@
 /MANIFEST
-/build
-/dist
+build/*
+dist/*
 /doc/doctrees
 /doc/html
 /posix1e.html
-/posix1e.so
+*.so
 /posix1e.txt
-/pylibacl.egg-info
+*.egg-info
 *.py[co]
 *.cache
 *.o
@@ -14,3 +14,6 @@ config.h
 *.log
 *.status
 stamp-h*
+*DS_Store*
+*~
+libtool

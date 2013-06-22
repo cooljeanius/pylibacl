@@ -2,19 +2,19 @@
 ACLOCAL_AMFLAGS = -I m4
 
 SPHINXOPTS    = -W
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = @SPHINX_BUILD@
 DOCDIR        = doc
 DOCHTML       = $(DOCDIR)/html
 DOCTREES      = $(DOCDIR)/doctrees
 ALLSPHINXOPTS = -d $(DOCTREES) $(SPHINXOPTS) $(DOCDIR)
 
-MODNAME = posix1e.so
+MODNAME = posix1e.@SO_SUFFIX@
 RSTFILES = doc/index.rst doc/module.rst NEWS README doc/conf.py
 
 all: doc test
 
 $(MODNAME): acl.c
-	./setup.py build_ext --inplace
+	@PYTHON@ ./setup.py build_ext --inplace
 
 $(DOCHTML)/index.html: $(MODNAME) $(RSTFILES)
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(DOCHTML)

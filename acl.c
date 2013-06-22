@@ -25,6 +25,10 @@
 #include <sys/types.h>
 #include <sys/acl.h>
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #ifdef HAVE_LINUX
 #include <acl/libacl.h>
 #define get_perm acl_get_perm

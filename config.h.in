@@ -1,13 +1,31 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
-/* Define to 1 if you have the `acl' function. */
-#undef HAVE_ACL
+/* Define to 1 if you have the `aclsort' function. */
+#undef HAVE_ACLSORT
+
+/* Define to 1 if you have the <aclv.h> header file. */
+#undef HAVE_ACLV_H
 
 /* Define to 1 if you have the `aclx_get' function. */
 #undef HAVE_ACLX_GET
 
+/* Define to 1 if you have the `acl_add_perm' function. */
+#undef HAVE_ACL_ADD_PERM
+
+/* Define to 1 if you have the `acl_calc_mask' function. */
+#undef HAVE_ACL_CALC_MASK
+
+/* Define to 1 if you have the `acl_clear_perms' function. */
+#undef HAVE_ACL_CLEAR_PERMS
+
+/* Define to 1 if you have the `acl_copy_entry' function. */
+#undef HAVE_ACL_COPY_ENTRY
+
 /* Define to 1 if you have the `acl_copy_ext_native' function. */
 #undef HAVE_ACL_COPY_EXT_NATIVE
+
+/* Define to 1 if you have the `acl_create_entry' function. */
+#undef HAVE_ACL_CREATE_ENTRY
 
 /* Define to 1 if you have the `acl_create_entry_np' function. */
 #undef HAVE_ACL_CREATE_ENTRY_NP
@@ -15,11 +33,20 @@
 /* Define to 1 if you have the `acl_delete_def_file' function. */
 #undef HAVE_ACL_DELETE_DEF_FILE
 
+/* Define to 1 if you have the `acl_delete_entry' function. */
+#undef HAVE_ACL_DELETE_ENTRY
+
 /* Define to 1 if you have the `acl_delete_fd_np' function. */
 #undef HAVE_ACL_DELETE_FD_NP
 
 /* Define to 1 if you have the `acl_delete_file_np' function. */
 #undef HAVE_ACL_DELETE_FILE_NP
+
+/* Define to 1 if you have the `acl_delete_perm' function. */
+#undef HAVE_ACL_DELETE_PERM
+
+/* Define to 1 if you have the `acl_dup' function. */
+#undef HAVE_ACL_DUP
 
 /* Define to 1 if you have the `acl_entries' function. */
 #undef HAVE_ACL_ENTRIES
@@ -42,14 +69,32 @@
 /* Define to 1 if you have the `acl_from_text' function. */
 #undef HAVE_ACL_FROM_TEXT
 
+/* Define to 1 if you have the `acl_get' function. */
+#undef HAVE_ACL_GET
+
 /* Define to 1 if you have the `acl_get_fd' function. */
 #undef HAVE_ACL_GET_FD
 
 /* Define to 1 if you have the `acl_get_file' function. */
 #undef HAVE_ACL_GET_FILE
 
+/* Define to 1 if you have the `acl_get_permset' function. */
+#undef HAVE_ACL_GET_PERMSET
+
+/* Define to 1 if you have the `acl_get_qualifier' function. */
+#undef HAVE_ACL_GET_QUALIFIER
+
+/* Define to 1 if you have the `acl_get_tag_type' function. */
+#undef HAVE_ACL_GET_TAG_TYPE
+
+/* Define to 1 if you have the `acl_init' function. */
+#undef HAVE_ACL_INIT
+
 /* Define to 1 if you have the <acl/libacl.h> header file. */
 #undef HAVE_ACL_LIBACL_H
+
+/* Define to 1 if you have the `acl_set' function. */
+#undef HAVE_ACL_SET
 
 /* Define to 1 if you have the `acl_set_fd' function. */
 #undef HAVE_ACL_SET_FD
@@ -57,8 +102,20 @@
 /* Define to 1 if you have the `acl_set_file' function. */
 #undef HAVE_ACL_SET_FILE
 
+/* Define to 1 if you have the `acl_set_permset' function. */
+#undef HAVE_ACL_SET_PERMSET
+
+/* Define to 1 if you have the `acl_set_qualifier' function. */
+#undef HAVE_ACL_SET_QUALIFIER
+
+/* Define to 1 if you have the `acl_set_tag_type' function. */
+#undef HAVE_ACL_SET_TAG_TYPE
+
 /* Define to 1 if you have the `acl_to_short_text' function. */
 #undef HAVE_ACL_TO_SHORT_TEXT
+
+/* Define to 1 if you have the `acl_to_text' function. */
+#undef HAVE_ACL_TO_TEXT
 
 /* Define to 1 if you have the `acl_trivial' function. */
 #undef HAVE_ACL_TRIVIAL
@@ -66,20 +123,41 @@
 /* Define to 1 if the ACL type ACL_TYPE_EXTENDED exists. */
 #undef HAVE_ACL_TYPE_EXTENDED
 
+/* Define to 1 if you have the `acl_valid' function. */
+#undef HAVE_ACL_VALID
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you have the `facl' function. */
+#undef HAVE_FACL
+
 /* Define to 1 if you have the `getacl' function. */
 #undef HAVE_GETACL
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
+/* Define to 1 if you have the `c' library (-lc). */
+#undef HAVE_LIBC
+
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the `posix1e' function. */
+#undef HAVE_POSIX1E
+
+/* Define to 1 if you have the <Python.h> header file. */
+#undef HAVE_PYTHON_H
 
 /* Define to 1 if you have the `statacl' function. */
 #undef HAVE_STATACL
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdio.h> header file. */
+#undef HAVE_STDIO_H
 
 /* Define to 1 if you have the <stdlib.h> header file. */
 #undef HAVE_STDLIB_H
@@ -102,6 +180,19 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #undef HAVE_UNISTD_H
 
+/* Define to the extension used for runtime loadable modules, say, ".so". */
+#undef LT_MODULE_EXT
+
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
+#undef LT_OBJDIR
+
+/* Define to the shared library suffix, say, ".dylib". */
+#undef LT_SHARED_EXT
+
+/* Define to 1 if your C compiler doesn't accept -c and -o together. */
+#undef NO_MINUS_C_MINUS_O
+
 /* Name of package */
 #undef PACKAGE
 
@@ -117,8 +208,14 @@
 /* Define to the one symbol short name of this package. */
 #undef PACKAGE_TARNAME
 
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
+
+/* Define to the soname of the libc library. */
+#undef SONAME_LIBC
 
 /* Define to 1 if you have the ANSI C header files. */
 #undef STDC_HEADERS
@@ -126,8 +223,40 @@
 /* Define to nonzero if you want access control list support. */
 #undef USE_ACL
 
+/* Enable extensions on AIX 3, Interix.  */
+#ifndef _ALL_SOURCE
+# undef _ALL_SOURCE
+#endif
+/* Enable GNU extensions on systems that have them.  */
+#ifndef _GNU_SOURCE
+# undef _GNU_SOURCE
+#endif
+/* Enable threading extensions on Solaris.  */
+#ifndef _POSIX_PTHREAD_SEMANTICS
+# undef _POSIX_PTHREAD_SEMANTICS
+#endif
+/* Enable extensions on HP NonStop.  */
+#ifndef _TANDEM_SOURCE
+# undef _TANDEM_SOURCE
+#endif
+/* Enable general extensions on Solaris.  */
+#ifndef __EXTENSIONS__
+# undef __EXTENSIONS__
+#endif
+
+
 /* Version number of package */
 #undef VERSION
+
+/* Define to 1 if on MINIX. */
+#undef _MINIX
+
+/* Define to 2 if the system does not provide POSIX.1 features except with
+   this defined. */
+#undef _POSIX_1_SOURCE
+
+/* Define to 1 if you need to in order for `stat' and other things to work. */
+#undef _POSIX_SOURCE
 
 /* Define to empty if `const' does not conform to ANSI C. */
 #undef const
