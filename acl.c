@@ -1,4 +1,4 @@
-/*
+/* acl.c -*- C -*-
     posix1e - a python module exposing the posix acl functions
 
     Copyright (C) 2002-2009, 2012 Iustin Pop <iusty@k1024.org>
@@ -1787,3 +1787,5 @@ void initposix1e(void)
     return m;
 #endif
 }
+
+/* EOF */
