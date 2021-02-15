@@ -17,3 +17,5 @@ stamp-h*
 *DS_Store*
 *~
 libtool
+confdefs.h
+conftest*

@@ -1,5 +1,5 @@
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 --install
 
 SPHINXOPTS    = -W
 SPHINXBUILD   = @SPHINX_BUILD@
@@ -30,9 +30,9 @@ test:
           fi; \
 	done
 
-clean:
+clean-local:
 	rm -rf $(DOCHTML) $(DOCTREES)
 	rm -f $(MODNAME)
 	rm -rf build
 
-.PHONY: doc test clean
+.PHONY: doc test clean-local
