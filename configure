@@ -710,6 +710,7 @@ SED
 LIBTOOL
 CHMOD
 SPHINX_BUILD
+FAKEROOT
 pkgpyexecdir
 pyexecdir
 pkgpythondir
@@ -2599,7 +2600,7 @@ as_fn_append ac_header_c_list " wchar.h wchar_h HAVE_WCHAR_H"
 as_fn_append ac_header_c_list " minix/config.h minix_config_h HAVE_MINIX_CONFIG_H"
 
 # Auxiliary files required by this configure script.
-ac_aux_files="ltmain.sh ar-lib compile missing install-sh config.guess config.sub"
+ac_aux_files="ltmain.sh ar-lib install-sh config.guess config.sub missing compile"
 
 # Locations in which to look for auxiliary files.
 ac_aux_dir_candidates="${srcdir}/build-aux"
@@ -2763,10 +2764,7 @@ ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
-
-
 ac_config_headers="$ac_config_headers config.h"
-
 
 
 
@@ -3500,7 +3498,6 @@ END
     as_fn_error $? "Your 'rm' program is bad, sorry." "$LINENO" 5
   fi
 fi
-
 
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether to enable maintainer-specific portions of Makefiles" >&5
 printf %s "checking whether to enable maintainer-specific portions of Makefiles... " >&6; }
@@ -5907,6 +5904,50 @@ printf "%s\n" "$am_cv_python_pyexecdir" >&6; }
 
   fi
 
+# Extract the first word of "fakeroot", so it can be a program name with args.
+set dummy fakeroot; ac_word=$2
+{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+printf %s "checking for $ac_word... " >&6; }
+if test ${ac_cv_path_FAKEROOT+y}
+then :
+  printf %s "(cached) " >&6
+else $as_nop
+  case $FAKEROOT in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_FAKEROOT="$FAKEROOT" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  case $as_dir in #(((
+    '') as_dir=./ ;;
+    */) ;;
+    *) as_dir=$as_dir/ ;;
+  esac
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir$ac_word$ac_exec_ext"; then
+    ac_cv_path_FAKEROOT="$as_dir$ac_word$ac_exec_ext"
+    printf "%s\n" "$as_me:${as_lineno-$LINENO}: found $as_dir$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+  test -z "$ac_cv_path_FAKEROOT" && ac_cv_path_FAKEROOT="fakeroot"
+  ;;
+esac
+fi
+FAKEROOT=$ac_cv_path_FAKEROOT
+if test -n "$FAKEROOT"; then
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $FAKEROOT" >&5
+printf "%s\n" "$FAKEROOT" >&6; }
+else
+  { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
+printf "%s\n" "no" >&6; }
+fi
 
 # Extract the first word of "sphinx-build", so it can be a program name with args.
 set dummy sphinx-build; ac_word=$2
@@ -5940,6 +5981,7 @@ done
   done
 IFS=$as_save_IFS
 
+  test -z "$ac_cv_path_SPHINX_BUILD" && ac_cv_path_SPHINX_BUILD="sphinx-build"
   ;;
 esac
 fi
@@ -5951,8 +5993,6 @@ else
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: no" >&5
 printf "%s\n" "no" >&6; }
 fi
-
-
 
 # Extract the first word of "chmod", so it can be a program name with args.
 set dummy chmod; ac_word=$2
@@ -13931,7 +13971,6 @@ CC=$lt_save_CC
 
 
 # Only expand once:
-
 
 
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking what extension is used for runtime loadable modules" >&5

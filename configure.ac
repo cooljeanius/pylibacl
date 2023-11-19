@@ -1,14 +1,16 @@
 dnl#                                               -*- Autoconf -*-
 dnl# Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.70])
-AC_INIT([pylibacl],[0.4.0],[https://github.com/iustin/pylibacl/issues])
-AC_CONFIG_SRCDIR([acl.c])
-AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_AUX_DIR([build-aux])
+AC_PREREQ([2.70])dnl
+AC_INIT([pylibacl],[0.4.0],[https://github.com/iustin/pylibacl/issues])dnl
+AC_CONFIG_SRCDIR([acl.c])dnl
+AC_CONFIG_HEADERS([config.h])dnl
+AC_CONFIG_MACRO_DIR([m4])dnl
+AC_CONFIG_AUX_DIR([build-aux])dnl
+AC_REQUIRE_AUX_FILE([compile])dnl
+AC_REQUIRE_AUX_FILE([missing])dnl
 AC_CANONICAL_TARGET
-AM_INIT_AUTOMAKE([foreign])
+AM_INIT_AUTOMAKE([foreign])dnl
 AM_MAINTAINER_MODE
 AC_EXEEXT
 AC_USE_SYSTEM_EXTENSIONS
@@ -19,16 +21,17 @@ AM_PROG_AR
 AM_PROG_CC_C_O
 AC_PROG_GCC_TRADITIONAL
 AM_PATH_PYTHON([2.4])
-AC_SUBST([PYTHON])
-AC_PATH_PROG([SPHINX_BUILD],[sphinx-build])
-AC_SUBST([SPHINX_BUILD])
+AC_SUBST([PYTHON])dnl
+AC_PATH_PROG([FAKEROOT],[fakeroot],[fakeroot])dnl
+AC_PATH_PROG([SPHINX_BUILD],[sphinx-build],[sphinx-build])dnl
+AC_SUBST([SPHINX_BUILD])dnl
 AC_PATH_PROG([CHMOD],[chmod])dnl
 
 # Next two lines is a hack to prevent libtool checking for CXX/F77
 define([AC_LIBTOOL_LANG_CXX_CONFIG],[:])dnl
 define([AC_LIBTOOL_LANG_F77_CONFIG],[:])dnl
 LT_INIT
-LT_LANG([C])
+LT_LANG([C])dnl
 LT_SYS_MODULE_EXT
 AC_SUBST([LT_MODULE_EXT])dnl
 AC_SUBST([LT_SHARED_EXT])dnl
