@@ -72,7 +72,7 @@ jobs:
     - name: Dependencies
       run: |
         sudo apt-get -qq update
-        sudo apt-get install acl xfsdump attr python-setuptools libc-dev
+        sudo apt-get -q install acl attr xfsdump xfsprogs python-setuptools libc-dev python-setuptools-doc python2-doc python-tk python2.7-doc quota build-essential libc-devtools 
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
