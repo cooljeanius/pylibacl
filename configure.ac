@@ -2,7 +2,7 @@ dnl#                                               -*- Autoconf -*-
 dnl# Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.70])dnl
-AC_INIT([pylibacl],[0.5.2],[https://github.com/iustin/pylibacl/issues])dnl
+AC_INIT([pylibacl],[0.5.3],[https://github.com/iustin/pylibacl/issues])dnl
 AC_CONFIG_SRCDIR([acl.c])dnl
 AC_CONFIG_HEADERS([config.h])dnl
 AC_CONFIG_MACRO_DIR([m4])dnl
