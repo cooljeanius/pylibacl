@@ -20,3 +20,5 @@ libtool
 confdefs.h
 conftest*
 Makefile
+pylibacl-*.*.*/*
+.deps/*.*o

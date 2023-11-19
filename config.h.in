@@ -161,6 +161,9 @@
 /* Define to 1 if you have the <Python.h> header file. */
 #undef HAVE_PYTHON_H
 
+/* Define to 1 if you have the <Python/Python.h> header file. */
+#undef HAVE_PYTHON_PYTHON_H
+
 /* Define to 1 if you have the `statacl' function. */
 #undef HAVE_STATACL
 

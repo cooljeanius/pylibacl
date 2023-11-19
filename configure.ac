@@ -2,12 +2,13 @@ dnl#                                               -*- Autoconf -*-
 dnl# Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.70])dnl
-AC_INIT([pylibacl],[0.4.0],[https://github.com/iustin/pylibacl/issues])dnl
+AC_INIT([pylibacl],[0.5.2],[https://github.com/iustin/pylibacl/issues])dnl
 AC_CONFIG_SRCDIR([acl.c])dnl
 AC_CONFIG_HEADERS([config.h])dnl
 AC_CONFIG_MACRO_DIR([m4])dnl
 AC_CONFIG_AUX_DIR([build-aux])dnl
 AC_REQUIRE_AUX_FILE([compile])dnl
+AC_REQUIRE_AUX_FILE([depcomp])dnl
 AC_REQUIRE_AUX_FILE([missing])dnl
 AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE([foreign])dnl
@@ -53,7 +54,7 @@ gl_FUNC_ACL
 AC_SUBST([SO_SUFFIX])dnl
 
 # Checks for header files.
-AC_CHECK_HEADERS([acl.h stdio.h Python.h])dnl
+AC_CHECK_HEADERS([acl.h stdio.h Python.h Python/Python.h])dnl
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

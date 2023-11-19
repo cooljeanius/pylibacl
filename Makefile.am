@@ -15,9 +15,34 @@ RSTFILES = doc/index.rst doc/module.rst NEWS README doc/conf.py
 
 DISTCLEANFILES = *~
 
+EXTRA_DIST = acl.c
+
 all: doc test
 
-$(MODNAME): acl.c
+./setup.py:
+	$(AM_V_at)if test ! -e ./setup.py && test -w .; then \
+	  if test -e $(srcdir)/setup.py; then \
+	    cp -v $(srcdir)/setup.py .; \
+	  elif test -e $(top_srcdir)/setup.py; then \
+	    cp -v $(top_srcdir)/setup.py .; \
+	  elif test -e $(builddir)/setup.py; then \
+	    cp -v $(builddir)/setup.py .; \
+	  elif test -e $(top_builddir)/setup.py; then \
+	    cp -v $(top_builddir)/setup.py .; \
+	  elif test -e ../setup.py; then \
+	    cp -v ../setup.py .; \
+	  elif test -e ../../setup.py; then \
+	    cp -v ../../setup.py .; \
+	  elif test -e ../../../setup.py; then \
+	    cp -v ../../../setup.py .; \
+	  else \
+	    echo "unsure where to get ./setup.py from"; \
+	  fi; \
+	else \
+	  ls || stat .; \
+	fi
+
+$(MODNAME): acl.c ./setup.py
 	@PYTHON@ ./setup.py build_ext --inplace
 
 $(DOCHTML)/index.html: $(MODNAME) $(RSTFILES)
@@ -26,7 +51,7 @@ $(DOCHTML)/index.html: $(MODNAME) $(RSTFILES)
 
 doc: $(DOCHTML)/index.html
 
-dist-local:
+dist-local: ./setup.py
 	$(FAKEROOT) ./setup.py sdist
 .PHONY: dist-local
 
