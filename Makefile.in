@@ -806,11 +806,12 @@ dist-local: ./setup.py
 .PHONY: dist-local
 
 test:
-	$(AM_V_at)for ver in 2.4 2.5 2.6 2.7 3.0 3.1 3.2 3.3 3.4; do \
+	$(AM_V_at)for ver in 2.4 2.5 2.6 2.7 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7; do \
 	  if type python$${ver} >/dev/null 2>/dev/null; then \
 	    if test -x "`which python$${ver} 2>/dev/null`"; then \
 	      echo "Testing with python$${ver}"; \
 	      python$${ver} ./setup.py test -q || python$${ver} -m py_compile ./setup.py; \
+	      echo "Done testing with python$${ver}; onto the next one..."; \
 	    else \
 	      echo "Cannot test with python$${ver}"; \
 	    fi; \
