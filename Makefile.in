@@ -807,17 +807,19 @@ dist-local: ./setup.py
 
 test: ./setup.py
 	$(AM_V_at)for ver in 2.4 2.5 2.6 2.7 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7; do \
-	  if type python$${ver} >/dev/null 2>/dev/null; then \
-	    if test -x "`which python$${ver} 2>/dev/null`"; then \
-	      echo "Testing with python$${ver}"; \
-	      python$${ver} ./setup.py test -q || python$${ver} -b -d -m py_compile ./setup.py; \
-	      echo "Done testing with python$${ver}; onto the next one..."; \
+	  for flav in "" "-dbg"; do \
+	    if type python$${ver}$${flav} >/dev/null 2>/dev/null; then \
+	      if test -x "`which python$${ver}$${flav} 2>/dev/null`"; then \
+	        echo "Testing with python$${ver}$${flav}"; \
+	        python$${ver}$${flav} ./setup.py test -q || python$${ver}$${flav} -b -d -m py_compile ./setup.py; \
+	        echo "Done testing with python$${ver}$${flav}; onto the next 1"; \
+	      else \
+	        echo "Cannot test with python$${ver}$${flav}"; \
+	      fi; \
 	    else \
-	      echo "Cannot test with python$${ver}"; \
+	      echo "python$${ver}$${flav} is missing"; \
 	    fi; \
-	  else \
-	    echo "python$${ver} is missing"; \
-	  fi; \
+	  done; \
 	done
 	$(AM_V_at)if type pypy >/dev/null 2>/dev/null; then \
 	  if test -x "`which pypy 2>/dev/null`"; then \
