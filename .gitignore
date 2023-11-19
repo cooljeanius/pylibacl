@@ -16,3 +16,4 @@ config.log
 libtool
 *.so
 stamp-*
+.deps/*.*o
