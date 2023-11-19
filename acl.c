@@ -1864,9 +1864,9 @@ void initposix1e(void)
     PyModule_AddIntConstant(m, "ACL_MISS_ERROR", ACL_MISS_ERROR);
     PyModule_AddIntConstant(m, "ACL_ENTRY_ERROR", ACL_ENTRY_ERROR);
 
-#define LINUX_EXT_VAL 1
+# define LINUX_EXT_VAL 1
 #else
-#define LINUX_EXT_VAL 0
+# define LINUX_EXT_VAL 0
 #endif
     /* declare the Linux extensions */
     PyModule_AddIntConstant(m, "HAS_ACL_FROM_MODE", LINUX_EXT_VAL);
