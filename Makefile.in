@@ -152,10 +152,10 @@ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(top_srcdir)/build-aux/depcomp \
 	$(top_srcdir)/build-aux/install-sh \
 	$(top_srcdir)/build-aux/ltmain.sh \
-	$(top_srcdir)/build-aux/missing COPYING NEWS README \
-	build-aux/ar-lib build-aux/compile build-aux/config.guess \
-	build-aux/config.sub build-aux/depcomp build-aux/install-sh \
-	build-aux/ltmain.sh build-aux/missing
+	$(top_srcdir)/build-aux/missing COPYING NEWS build-aux/ar-lib \
+	build-aux/compile build-aux/config.guess build-aux/config.sub \
+	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
+	build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -345,7 +345,7 @@ DOCHTML = $(DOCDIR)/html
 DOCTREES = $(DOCDIR)/doctrees
 ALLSPHINXOPTS = -d $(DOCTREES) $(SPHINXOPTS) $(DOCDIR)
 MODNAME = posix1e.@SO_SUFFIX@
-RSTFILES = doc/index.rst doc/module.rst NEWS README doc/conf.py
+RSTFILES = doc/index.rst doc/module.rst NEWS README.rst doc/conf.py
 DISTCLEANFILES = *~
 EXTRA_DIST = acl.c
 all: config.h

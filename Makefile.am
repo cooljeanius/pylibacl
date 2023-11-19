@@ -11,7 +11,7 @@ DOCTREES      = $(DOCDIR)/doctrees
 ALLSPHINXOPTS = -d $(DOCTREES) $(SPHINXOPTS) $(DOCDIR)
 
 MODNAME = posix1e.@SO_SUFFIX@
-RSTFILES = doc/index.rst doc/module.rst NEWS README doc/conf.py
+RSTFILES = doc/index.rst doc/module.rst NEWS README.rst doc/conf.py
 
 DISTCLEANFILES = *~
 
