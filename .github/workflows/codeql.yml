@@ -70,9 +70,10 @@ jobs:
         # queries: security-extended,security-and-quality
 
     - name: Dependencies
+      if: matrix.language == 'c-cpp'
       run: |
         sudo apt-get -qq update
-        sudo apt-get -q install acl attr xfsdump xfsprogs python-setuptools libc-dev python-setuptools-doc python2-doc python-tk python2.7-doc quota build-essential libc-devtools 
+        sudo apt-get -q install acl attr xfsdump xfsprogs python-setuptools libc-dev python-setuptools-doc python2-doc python-tk python2.7-doc quota build-essential libc-devtools blt-demo tix python-tk-dbg libnet-ldap-perl rpcbind
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
