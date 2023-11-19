@@ -17,3 +17,4 @@ libtool
 *.so
 stamp-*
 .deps/*.*o
+coverage.info
