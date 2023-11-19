@@ -805,7 +805,7 @@ dist-local: ./setup.py
 	$(FAKEROOT) ./setup.py sdist
 .PHONY: dist-local
 
-test:
+test: ./setup.py
 	$(AM_V_at)for ver in 2.4 2.5 2.6 2.7 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7; do \
 	  if type python$${ver} >/dev/null 2>/dev/null; then \
 	    if test -x "`which python$${ver} 2>/dev/null`"; then \
@@ -820,8 +820,12 @@ test:
 	  fi; \
 	done
 	$(AM_V_at)if type pypy >/dev/null 2>/dev/null; then \
-	  echo "Testing with pypy"; \
-	  pypy ./setup.py test -q; \
+	  if test -x "`which pypy 2>/dev/null`"; then \
+	    echo "Testing with pypy"; \
+	    pypy ./setup.py test -q || pypy -m py_compile ./setup.py; \
+	  else \
+	    echo "Cannot test with pypy"; \
+	  fi; \
 	else \
 	  echo "pypy is missing"; \
 	fi
