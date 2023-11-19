@@ -810,7 +810,7 @@ test: ./setup.py
 	  if type python$${ver} >/dev/null 2>/dev/null; then \
 	    if test -x "`which python$${ver} 2>/dev/null`"; then \
 	      echo "Testing with python$${ver}"; \
-	      python$${ver} ./setup.py test -q || python$${ver} -m py_compile ./setup.py; \
+	      python$${ver} ./setup.py test -q || python$${ver} -b -d -m py_compile ./setup.py; \
 	      echo "Done testing with python$${ver}; onto the next one..."; \
 	    else \
 	      echo "Cannot test with python$${ver}"; \
@@ -822,7 +822,8 @@ test: ./setup.py
 	$(AM_V_at)if type pypy >/dev/null 2>/dev/null; then \
 	  if test -x "`which pypy 2>/dev/null`"; then \
 	    echo "Testing with pypy"; \
-	    pypy ./setup.py test -q || pypy -m py_compile ./setup.py; \
+	    pypy ./setup.py test -q || pypy -b -d -m py_compile ./setup.py; \
+	    echo "Done testing with pypy"; \
 	  else \
 	    echo "Cannot test with pypy"; \
 	  fi; \
