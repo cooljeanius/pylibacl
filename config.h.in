@@ -87,6 +87,9 @@
 /* Define to 1 if you have the `acl_get_tag_type' function. */
 #undef HAVE_ACL_GET_TAG_TYPE
 
+/* Define to 1 if you have the <acl.h> header file. */
+#undef HAVE_ACL_H
+
 /* Define to 1 if you have the `acl_init' function. */
 #undef HAVE_ACL_INIT
 
@@ -125,6 +128,14 @@
 
 /* Define to 1 if you have the `acl_valid' function. */
 #undef HAVE_ACL_VALID
+
+/* Define to 1 if you have the declaration of `ACL_READ', and to 0 if you
+   don't. */
+#undef HAVE_DECL_ACL_READ
+
+/* Define to 1 if you have the declaration of `ACL_WRITE', and to 0 if you
+   don't. */
+#undef HAVE_DECL_ACL_WRITE
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #undef HAVE_DLFCN_H

@@ -50,13 +50,30 @@ gl_FUNC_ACL
 AC_SUBST([SO_SUFFIX])dnl
 
 # Checks for header files.
-AC_CHECK_HEADERS([stdio.h Python.h])dnl
+AC_CHECK_HEADERS([acl.h stdio.h Python.h])dnl
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 AC_TYPE_MODE_T
 AC_TYPE_SSIZE_T
 AC_TYPE_UID_T
+AC_CHECK_DECLS([ACL_READ, ACL_WRITE],[],[],[
+#ifdef HAVE_ACL_H
+# include <acl.h>
+#else
+# ifdef HAVE_SYS_ACL_H
+#  include <sys/acl.h>
+# else
+#  ifdef HAVE_ACL_LIBACL_H
+#   include <acl/libacl.h>
+#  else
+#   if defined(__GNUC__) && !defined(__STRICT_ANSI__)
+#    warning "conftest for acl decls needs an acl-related header"
+#   endif /* __GNUC__ && !__STRICT_ANSI__ */
+#  endif /* HAVE_ACL_LIBACL_H */
+# endif /* HAVE_SYS_ACL_H */
+#endif /* HAVE_ACL_H */
+])dnl
 
 # Checks for library functions.
 # This first set should exist on Darwin:

@@ -26,50 +26,54 @@
 #include <sys/acl.h>
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+# include "config.h"
+#endif /* HAVE_CONFIG_H */
 
 #ifdef HAVE_LINUX
-#include <acl/libacl.h>
-#define get_perm acl_get_perm
-#elif HAVE_FREEBSD
-#define get_perm acl_get_perm_np
+# include <acl/libacl.h>
+# define get_perm acl_get_perm
+#elif defined(HAVE_FREEBSD) && HAVE_FREEBSD
+# define get_perm acl_get_perm_np
+#elif defined(HAVE_ACL_LIBACL_H)
+# include <acl/libacl.h>
+#elif defined(HAVE_ACL_H)
+# include <acl.h>
 #endif
 
 #if PY_MAJOR_VERSION >= 3
-#define IS_PY3K
-#define PyInt_Check(op) PyLong_Check(op)
-#define PyInt_FromString PyLong_FromString
-#define PyInt_FromUnicode PyLong_FromUnicode
-#define PyInt_FromLong PyLong_FromLong
-#define PyInt_FromSize_t PyLong_FromSize_t
-#define PyInt_FromSsize_t PyLong_FromSsize_t
-#define PyInt_AsLong PyLong_AsLong
-#define PyInt_AsSsize_t PyLong_AsSsize_t
-#define PyInt_AsUnsignedLongMask PyLong_AsUnsignedLongMask
-#define PyInt_AsUnsignedLongLongMask PyLong_AsUnsignedLongLongMask
-#define PyInt_AS_LONG PyLong_AS_LONG
-#define MyString_ConcatAndDel PyUnicode_AppendAndDel
-#define MyString_FromFormat PyUnicode_FromFormat
-#define MyString_FromString PyUnicode_FromString
-#define MyString_FromStringAndSize PyUnicode_FromStringAndSize
+# define IS_PY3K
+# define PyInt_Check(op) PyLong_Check(op)
+# define PyInt_FromString PyLong_FromString
+# define PyInt_FromUnicode PyLong_FromUnicode
+# define PyInt_FromLong PyLong_FromLong
+# define PyInt_FromSize_t PyLong_FromSize_t
+# define PyInt_FromSsize_t PyLong_FromSsize_t
+# define PyInt_AsLong PyLong_AsLong
+# define PyInt_AsSsize_t PyLong_AsSsize_t
+# define PyInt_AsUnsignedLongMask PyLong_AsUnsignedLongMask
+# define PyInt_AsUnsignedLongLongMask PyLong_AsUnsignedLongLongMask
+# define PyInt_AS_LONG PyLong_AS_LONG
+# define MyString_ConcatAndDel PyUnicode_AppendAndDel
+# define MyString_FromFormat PyUnicode_FromFormat
+# define MyString_FromString PyUnicode_FromString
+# define MyString_FromStringAndSize PyUnicode_FromStringAndSize
 #else
-#define PyBytes_Check PyString_Check
-#define PyBytes_AS_STRING PyString_AS_STRING
-#define PyBytes_FromStringAndSize PyString_FromStringAndSize
-#define PyBytes_FromString PyString_FromString
-#define PyBytes_FromFormat PyString_FromFormat
-#define PyBytes_ConcatAndDel PyString_ConcatAndDel
-#define MyString_ConcatAndDel PyBytes_ConcatAndDel
-#define MyString_FromFormat PyBytes_FromFormat
-#define MyString_FromString PyBytes_FromString
-#define MyString_FromStringAndSize PyBytes_FromStringAndSize
+# define PyBytes_Check PyString_Check
+# define PyBytes_AS_STRING PyString_AS_STRING
+# define PyBytes_FromStringAndSize PyString_FromStringAndSize
+# define PyBytes_FromString PyString_FromString
+# define PyBytes_FromFormat PyString_FromFormat
+# define PyBytes_ConcatAndDel PyString_ConcatAndDel
+# define MyString_ConcatAndDel PyBytes_ConcatAndDel
+# define MyString_FromFormat PyBytes_FromFormat
+# define MyString_FromString PyBytes_FromString
+# define MyString_FromStringAndSize PyBytes_FromStringAndSize
 
 /* Python 2.6 already defines Py_TYPE */
-#ifndef Py_TYPE
-#define Py_TYPE(o)    (((PyObject*)(o))->ob_type)
-#endif
-#endif
+# ifndef Py_TYPE
+#  define Py_TYPE(o)    (((PyObject*)(o))->ob_type)
+# endif /* !Py_TYPE */
+#endif /* (python version check) */
 
 static PyTypeObject ACL_Type;
 static PyObject* ACL_applyto(PyObject* obj, PyObject* args);
@@ -86,6 +90,15 @@ static PyTypeObject Permset_Type;
 static PyObject* Permset_new(PyTypeObject* type, PyObject* args,
                              PyObject *keywds);
 #endif
+
+#if !defined(_SYS_ACL_H_) || defined(__APPLE__)
+# if !defined(ACL_WRITE) && (!defined(HAVE_DECL_ACL_WRITE) || !HAVE_DECL_ACL_WRITE)
+#  define ACL_WRITE 0x0002
+# endif /* !ACL_WRITE && !HAVE_DECL_ACL_WRITE */
+# if !defined(ACL_READ) && (!defined(HAVE_DECL_ACL_READ) || !HAVE_DECL_ACL_READ)
+#  define ACL_READ 0x0004
+# endif /* !ACL_READ && !HAVE_DECL_ACL_WRITE */
+#endif /* !_SYS_ACL_H_ || __APPLE__ */
 
 static acl_perm_t holder_ACL_EXECUTE = ACL_EXECUTE;
 static acl_perm_t holder_ACL_READ = ACL_READ;
@@ -1325,12 +1338,12 @@ static char __Entry_Type_doc__[] =
     ;
 /* The definition of the Entry Type */
 static PyTypeObject Entry_Type = {
-#ifdef IS_PY3K
+# ifdef IS_PY3K
     PyVarObject_HEAD_INIT(NULL, 0)
-#else
+# else
     PyObject_HEAD_INIT(NULL)
     0,
-#endif
+# endif
     "posix1e.Entry",
     sizeof(Entry_Object),
     0,
@@ -1437,12 +1450,12 @@ static char __Permset_Type_doc__[] =
 
 /* The definition of the Permset Type */
 static PyTypeObject Permset_Type = {
-#ifdef IS_PY3K
+# ifdef IS_PY3K
     PyVarObject_HEAD_INIT(NULL, 0)
-#else
+# else
     PyObject_HEAD_INIT(NULL)
     0,
-#endif
+# endif
     "posix1e.Permset",
     sizeof(Permset_Object),
     0,
@@ -1677,20 +1690,24 @@ static struct PyModuleDef posix1emodule = {
     aclmodule_methods,
 };
 
-#define INITERROR return NULL
+# define INITERROR return NULL
 
 PyMODINIT_FUNC
 PyInit_posix1e(void)
 
 #else
-#define INITERROR return
+# define INITERROR return
 
 void initposix1e(void)
 #endif
 {
     PyObject *m, *d;
 
+#ifdef FIXME_FIGURE_OUT_PROPER_PREPROCESSOR_CONDITIONAL
     Py_TYPE(&ACL_Type) = &PyType_Type;
+#else
+    ACL_Type = PyType_Type;
+#endif /* FIXME_FIGURE_OUT_PROPER_PREPROCESSOR_CONDITIONAL */
     if(PyType_Ready(&ACL_Type) < 0)
         INITERROR;
 
