@@ -11,6 +11,8 @@ ALLSPHINXOPTS = -d $(DOCTREES) $(SPHINXOPTS) $(DOCDIR)
 MODNAME = posix1e.@SO_SUFFIX@
 RSTFILES = doc/index.rst doc/module.rst NEWS README doc/conf.py
 
+DISTCLEANFILES = *~
+
 all: doc test
 
 $(MODNAME): acl.c
@@ -34,5 +36,8 @@ clean-local:
 	rm -rf $(DOCHTML) $(DOCTREES)
 	rm -f $(MODNAME)
 	rm -rf build
+
+distclean-local:
+	-rm -rf autom4te.cache || rmdir autom4te.cache
 
 .PHONY: doc test clean-local
