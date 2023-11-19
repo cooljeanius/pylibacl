@@ -26,7 +26,9 @@ AC_SUBST([PYTHON])dnl
 AC_PATH_PROG([FAKEROOT],[fakeroot],[fakeroot])dnl
 AC_PATH_PROG([SPHINX_BUILD],[sphinx-build],[sphinx-build])dnl
 AC_SUBST([SPHINX_BUILD])dnl
-AC_PATH_PROG([CHMOD],[chmod])dnl
+AC_PATH_PROG([CHMOD],[chmod],[chmod])dnl
+AC_PATH_PROG([LCOV],[lcov],[lcov])dnl
+AC_PATH_PROG([GENHTML],[genhtml],[genhtml])dnl
 
 # Next two lines is a hack to prevent libtool checking for CXX/F77
 define([AC_LIBTOOL_LANG_CXX_CONFIG],[:])dnl

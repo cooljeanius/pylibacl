@@ -19,6 +19,9 @@ stamp-h*
 libtool
 confdefs.h
 conftest*
+conf*/out
+conf*/*.awk
 Makefile
 pylibacl-*.*.*/*
 .deps/*.*o
+coverage.info

@@ -209,6 +209,7 @@ EXEEXT = @EXEEXT@
 FAKEROOT = @FAKEROOT@
 FGREP = @FGREP@
 FILECMD = @FILECMD@
+GENHTML = @GENHTML@
 GREP = @GREP@
 IF_GNU_MAKE = @IF_GNU_MAKE@
 INSTALL = @INSTALL@
@@ -216,6 +217,7 @@ INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LCOV = @LCOV@
 LD = @LD@
 LDD = @LDD@
 LDDPOSTPROC = @LDDPOSTPROC@
@@ -346,7 +348,7 @@ DOCTREES = $(DOCDIR)/doctrees
 ALLSPHINXOPTS = -d $(DOCTREES) $(SPHINXOPTS) $(DOCDIR)
 MODNAME = posix1e.@SO_SUFFIX@
 RSTFILES = doc/index.rst doc/module.rst NEWS README.rst doc/conf.py
-DISTCLEANFILES = *~
+DISTCLEANFILES = *~ coverage.info
 EXTRA_DIST = acl.c
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -832,6 +834,13 @@ test: ./setup.py
 	else \
 	  echo "pypy is missing"; \
 	fi
+
+coverage: Makefile
+	$(MAKE) clean
+	$(MAKE) test CFLAGS="-coverage"
+	$(LCOV) --capture --directory . --output-file coverage.info
+	$(GENHTML) coverage.info --output-directory out
+.PHONY: coverage
 
 clean-local:
 	rm -rf $(DOCHTML) $(DOCTREES)

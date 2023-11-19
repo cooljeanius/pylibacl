@@ -13,7 +13,7 @@ ALLSPHINXOPTS = -d $(DOCTREES) $(SPHINXOPTS) $(DOCDIR)
 MODNAME = posix1e.@SO_SUFFIX@
 RSTFILES = doc/index.rst doc/module.rst NEWS README.rst doc/conf.py
 
-DISTCLEANFILES = *~
+DISTCLEANFILES = *~ coverage.info
 
 EXTRA_DIST = acl.c
 
@@ -82,6 +82,13 @@ test: ./setup.py
 	else \
 	  echo "pypy is missing"; \
 	fi
+
+coverage: Makefile
+	$(MAKE) clean
+	$(MAKE) test CFLAGS="-coverage"
+	$(LCOV) --capture --directory . --output-file coverage.info
+	$(GENHTML) coverage.info --output-directory out
+.PHONY: coverage
 
 clean-local:
 	rm -rf $(DOCHTML) $(DOCTREES)
