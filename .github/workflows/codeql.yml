@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'c-cpp', 'python' ]
+        language: [ 'actions', 'python' ]
         # CodeQL supports [ 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift' ]
         # Use only 'java-kotlin' to analyze code written in Java, Kotlin or both
         # Use only 'javascript-typescript' to analyze code written in JavaScript, TypeScript or both
@@ -54,7 +54,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -73,7 +73,9 @@ jobs:
       if: matrix.language == 'c-cpp'
       run: |
         sudo apt-get -qq update
-        sudo apt-get -q install acl attr xfsdump xfsprogs python-setuptools libc-dev python-setuptools-doc python2-doc python-tk python2.7-doc build-essential libc-devtools python-tk-dbg python-gdbm-dbg libacl1-dev sphinx pypy
+        sudo apt-get -q install acl attr xfsdump xfsprogs libc-dev \
+          python-setuptools-doc python3-doc python3-docutils build-essential \
+          libc-devtools python-tktreectrl-doc libacl1-dev sphinx pypy3
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
